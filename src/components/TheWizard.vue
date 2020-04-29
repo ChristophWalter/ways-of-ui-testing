@@ -1,35 +1,52 @@
 <template>
   <div class="wizard">
     <div class="wizard__content">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi
+      <button class="close" @click="$emit('close')">X</button>
+      <form-wizard
+        title="Thanks for your interest!"
+        subtitle="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi
         eos exercitationem impedit in magni nisi reprehenderit velit voluptate
         voluptatibus! Architecto deserunt facere itaque maiores optio quidem quo
-        reiciendis vitae.
-      </p>
-      <fieldset class="fieldset">
-        <input
-          type="radio"
-          id="try"
-          name="Mode"
-          value="try"
-          :checked="selectedMode === 'try'"
-          @click="selectedMode = 'try'"
-        />
-        <label for="try"> Try it first</label><br />
-        <input
-          type="radio"
-          id="buy"
-          name="Mode"
-          value="buy"
-          :checked="selectedMode === 'buy'"
-          @click="selectedMode = 'buy'"
-        />
-        <label for="buy"> Buy it straight away</label>
-      </fieldset>
-      <div class="actions">
-        <button @click="$emit('close')">CLOSE</button>
-      </div>
+        reiciendis vitae."
+        @on-complete="$emit('close')"
+      >
+        <tab-content title="Try our buy">
+          <fieldset class="fieldset">
+            <input
+              type="radio"
+              id="try"
+              name="Mode"
+              value="try"
+              :checked="selectedMode === 'try'"
+              @click="selectedMode = 'try'"
+            />
+            <label for="try"> Try it first</label><br />
+            <input
+              type="radio"
+              id="buy"
+              name="Mode"
+              value="buy"
+              :checked="selectedMode === 'buy'"
+              @click="selectedMode = 'buy'"
+            />
+            <label for="buy"> Buy it straight away</label>
+          </fieldset>
+        </tab-content>
+        <tab-content title="Additional Info">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
+          aliquam consequatur dolor ducimus eligendi enim ipsa ipsum magnam
+          minima modi mollitia nulla numquam, odit officia quidem sapiente
+          similique sit veniam.
+        </tab-content>
+        <tab-content title="Summary">
+          You chose to {{ selectedMode }}.
+          <hr />
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi,
+          fugiat sequi! Accusamus commodi corporis delectus est laboriosam modi
+          nihil, optio perferendis quas similique soluta tenetur ullam unde?
+          Dignissimos, soluta sunt!
+        </tab-content>
+      </form-wizard>
     </div>
   </div>
 </template>
@@ -65,12 +82,15 @@ export default {
   background: #fff;
   padding: 50px;
   max-width: 700px;
+  position: relative;
 }
 .fieldset {
   text-align: left;
 }
-.actions {
-  margin-top: 20px;
-  text-align: right;
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 20px;
 }
 </style>
