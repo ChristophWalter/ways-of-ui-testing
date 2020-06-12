@@ -1,12 +1,11 @@
 import { createLocalVue, mount } from "@vue/test-utils"
-import Home from "@/views/Home"
 import VueFormWizard from "vue-form-wizard"
-import Vue from "vue"
+import PackageSelection from "@/components/PackageSelection"
 
 it("should select the correct package", async () => {
   const localVue = createLocalVue()
   localVue.use(VueFormWizard)
-  const wrapper = mount(Home, {
+  const wrapper = mount(PackageSelection, {
     localVue,
   })
 
@@ -15,7 +14,9 @@ it("should select the correct package", async () => {
 
   await wrapper.find("button.buy").trigger("click")
   expect(wrapper.text()).toContain(DIALOG_CONTENT)
-  expect(wrapper.find("input[name=Mode][value=buy]").element.checked).toBeTruthy()
+  expect(
+    wrapper.find("input[name=Mode][value=buy]").element.checked
+  ).toBeTruthy()
 
   await wrapper.find("button[aria-label=Cancel]").trigger("click")
   expect(wrapper.text()).not.toContain(DIALOG_CONTENT)

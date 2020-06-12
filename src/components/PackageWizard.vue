@@ -52,7 +52,7 @@
 </template>
 <script>
 export default {
-  name: "TheWizard",
+  name: "PackageWizard",
   data() {
     return {
       selectedMode: undefined,

@@ -1,6 +1,6 @@
 it("should select the correct package", () => {
   const DIALOG_CONTENT = "Thanks for your interest!"
-  cy.visit("/")
+  cy.visit("/package-selection")
   cy.contains(DIALOG_CONTENT).should("not.be.visible")
 
   cy.contains("button", "BUY").click()

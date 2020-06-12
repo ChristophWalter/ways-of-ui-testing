@@ -1,11 +1,15 @@
-import Home from "@/views/Home"
 import VueFormWizard from "vue-form-wizard"
 import { render, fireEvent } from "@testing-library/vue"
+import PackageSelection from "@/components/PackageSelection"
 
 it("should select the correct package", async () => {
-  const { getByText, queryByText, getByRole } = render(Home, {}, vue => {
-    vue.use(VueFormWizard)
-  })
+  const { getByText, queryByText, getByRole } = render(
+    PackageSelection,
+    {},
+    vue => {
+      vue.use(VueFormWizard)
+    }
+  )
 
   const DIALOG_CONTENT = "Thanks for your interest!"
   expect(queryByText(DIALOG_CONTENT)).not.toBeInTheDocument()
