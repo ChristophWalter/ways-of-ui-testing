@@ -11,13 +11,11 @@ it("should select the correct package", async () => {
     localVue,
   })
   expect(wrapper.text()).not.toContain(DIALOG_CONTENT)
-  wrapper.find(".buy").trigger("click")
-  await Vue.nextTick()
+  await wrapper.find(".buy").trigger("click")
   expect(wrapper.text()).toContain(DIALOG_CONTENT)
   expect(
     wrapper.find("[name=Mode][aria-selected=true]").attributes("value")
   ).toEqual("buy")
-  wrapper.find("[aria-label=Cancel]").trigger("click")
-  await Vue.nextTick()
+  await wrapper.find("[aria-label=Cancel]").trigger("click")
   expect(wrapper.text()).not.toContain(DIALOG_CONTENT)
 })
