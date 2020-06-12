@@ -10,12 +10,13 @@ it("should select the correct package", async () => {
   const wrapper = mount(Home, {
     localVue,
   })
+
   expect(wrapper.text()).not.toContain(DIALOG_CONTENT)
+
   await wrapper.find(".buy").trigger("click")
   expect(wrapper.text()).toContain(DIALOG_CONTENT)
-  expect(
-    wrapper.find("[name=Mode][aria-selected=true]").attributes("value")
-  ).toEqual("buy")
+  expect(wrapper.find("[name=Mode][value=buy]").element.checked).toBeTruthy()
+
   await wrapper.find("[aria-label=Cancel]").trigger("click")
   expect(wrapper.text()).not.toContain(DIALOG_CONTENT)
 })

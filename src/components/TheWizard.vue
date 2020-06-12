@@ -1,7 +1,9 @@
 <template>
   <div class="wizard">
     <div class="wizard__content">
-      <button class="close" @click="$emit('close')" aria-label="Cancel">X</button>
+      <button class="close" @click="$emit('close')" aria-label="Cancel">
+        X
+      </button>
       <form-wizard
         title="Thanks for your interest!"
         subtitle="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi
@@ -17,9 +19,7 @@
               id="try"
               name="Mode"
               value="try"
-              :checked="selectedMode === 'try'"
-              :aria-selected="selectedMode === 'try'"
-              @click="selectedMode = 'try'"
+              v-model="selectedMode"
             />
             <label for="try"> Try it first</label><br />
             <input
@@ -27,9 +27,7 @@
               id="buy"
               name="Mode"
               value="buy"
-              :checked="selectedMode === 'buy'"
-              :aria-selected="selectedMode === 'buy'"
-              @click="selectedMode = 'buy'"
+              v-model="selectedMode"
             />
             <label for="buy"> Buy it straight away</label>
           </fieldset>
