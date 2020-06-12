@@ -1,3 +1,6 @@
 {
-  "pluginsFile": "tests/e2e/plugins/index.js"
+  "supportFile": false,
+  "pluginsFile": false,
+  "fixturesFolder": false,
+  "integrationFolder": "tests/cypress"
 }
