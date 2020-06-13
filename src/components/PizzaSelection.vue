@@ -8,7 +8,7 @@
           <input
             type="radio"
             :id="pizza"
-            name="Mode"
+            name="Pizza"
             :value="pizza"
             v-model="selectedPizza"
           />
@@ -46,18 +46,15 @@ export default {
   },
   methods: {
     submit() {
-      console.log("submitted ", this.selectedPizza)
       this.submitState = "loading"
       axios
         .post("/api/order/free", {
           pizza: this.selectedPizza,
         })
         .then(() => {
-          console.log("then")
           this.submitState = "success"
         })
         .catch(() => {
-          console.log("error")
           this.submitState = "error"
         })
     },

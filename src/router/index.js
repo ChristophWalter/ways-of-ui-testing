@@ -18,7 +18,7 @@ export const routes = [
     component: PackageSelection,
   },
   {
-    path: "/pizza",
+    path: "/free-pizza",
     name: "PizzaSelection",
     component: PizzaSelection,
   },
