@@ -1,5 +1,9 @@
 # ways-of-ui-testing
 
+This repository holds examples for the article ***UI Testing mit Spaßfaktor*** published in the german magazine ***Softwerker***.
+
+The article describes my own experiences and common problems when testing ui interfaces. Followed by some suggestions to avoid these problems and building a new mindset. Finally this article compares the VueTestingLibrary to the vue-test-utils and cypress and this is where this repository comes into play. Find the used test examples [here](/tests). Or start the whole application like shown below.
+
 ## Project setup
 ```
 yarn install
